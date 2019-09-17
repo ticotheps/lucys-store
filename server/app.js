@@ -16,6 +16,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
+// will return "message": "Not Found" initially due to lack of route at "/"
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.json({
