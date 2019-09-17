@@ -1,6 +1,6 @@
 // creates our 'product' table
-exports.up = function(knex) {
-  return knex.schema.createTableIfNotExist('product', table => {
+exports.up = function(knex, Promise) {
+  return knex.schema.createTable('product', table => {
     table.increments();
     table.text('title').notNullable();
     table.text('description');
@@ -13,4 +13,7 @@ exports.up = function(knex) {
   });
 };
 
-exports.down = function(knex) {};
+// opposite of creating a table; 'dropping' a table
+exports.down = function(knex, Promise) {
+  return knex.schema.dropTableIfExists('product');
+};
