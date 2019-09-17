@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 
-const product = require('./api/product');
+const product = require('./api/product.js');
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
   });
 });
 
-// mounts the router from 'products.js'
+// mounts the router from 'product.js'
 app.use('/api/v1/products', product);
 
 // catch 404 and forward to error handler
